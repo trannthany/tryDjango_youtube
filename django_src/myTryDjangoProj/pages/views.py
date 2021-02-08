@@ -4,7 +4,12 @@ from django.http import HttpResponse
 
 def home_view(request, *args, **kwargs):
     #return HttpResponse("<h1> Hello World!</h1>") # this return a string which is inside HttpResponse
-    return render(request, "home.html")
+    my_context = {
+        "my_text"   : "This is about us",
+        "my_number" : 123,
+        "my_list"   : [123, 24, 26, 27, 30, 32]
+    }
+    return render(request, "home.html", my_context)
 
 def contact_view(request, *args, **kwargs):
 
