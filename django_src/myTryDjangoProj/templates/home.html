@@ -8,7 +8,14 @@
  <p> {{my_text}}, {{my_number}} </p>
  <ul> 
     {% for my_sub_item in my_list %}
-        <li> {{forloop.counter}} - {{ my_sub_item}}</li>
+        {% if my_sub_item ==  24 %}
+            <li> {{forloop.counter}} - {{my_sub_item|add:2}}</li>
+        {% elif my_sub_item == "abc" %}
+            <li> This abc is not a network </li>
+        {% else %}
+            <li> {{forloop.counter}} - {{ my_sub_item}}</li>
+        {% endif %}
+        
     {% endfor %}
  </ul>   
 
